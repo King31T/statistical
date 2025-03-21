@@ -159,7 +159,7 @@ def get_last_update_event(owner, repo, token, issue_number, issue_created_time, 
             if event['created_at'] >= until_time:
                 continue
             elif event['created_at'] < since_time:
-                print('last non-closed updated event of issue(number: %d) in timeline is : %s and its created time is %s' %(issue_number, event['event'], event['created_at']))
+                #print('last non-closed updated event of issue(number: %d) in timeline is : %s and its created time is %s' %(issue_number, event['event'], event['created_at']))
                 break
             else:
                 return event
@@ -263,8 +263,8 @@ if __name__ == "__main__":
         print(f"仓库 {OWNER}/{REPO} 当前open的Issue 数量：{open_count} 个")
         created_count, closed_count, created_open_count, updated_count = get_recent_issues_count(OWNER, REPO, ACCESS_TOKEN, since_time, until_time)
         print(f"仓库 {OWNER}/{REPO} 最近一周新建的Issue 数量：{created_count} 个")
-        print(f"仓库 {OWNER}/{REPO} 最近一周关闭的Issue 数量：{closed_count} 个")
         print(f"仓库 {OWNER}/{REPO} 最近一周新建且open的Issue 数量：{created_open_count} 个")
+        print(f"仓库 {OWNER}/{REPO} 最近一周关闭的Issue 数量：{closed_count} 个")
         print(f"仓库 {OWNER}/{REPO} 最近一周更新的Issue 数量：{updated_count} 个")
         print('\n')
         print('************************************************')
