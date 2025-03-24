@@ -143,6 +143,7 @@ def get_last_update_event(owner, repo, token, issue_number, issue_created_time, 
     #        print(event['event'])
     #        print(event['created_at'])
 
+    if len(events) == 0: return last_update_event
     for i in range(len(events)):
         if events[i]['created_at'] != issue_created_time:
             break

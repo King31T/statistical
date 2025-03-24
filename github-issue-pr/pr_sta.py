@@ -144,6 +144,7 @@ def get_last_update_event(owner, repo, token, issue_number, issue_created_time, 
     last_update_event = None
     # 通过时间线获取events
     events = get_timeline_events(owner, repo, token, issue_number)
+    if len(events) == 0: return last_update_event
     # pr中的events的时间字段不标准，统一成标准的created_at时间a
     for i in range(len(events)):
         event = events[i]
